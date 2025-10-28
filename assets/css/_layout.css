@@ -1,0 +1,119 @@
+
+.container {
+    max-width: 1200px; 
+    margin: 0 auto;
+    padding: 0 var(--spacing-sm); 
+}
+
+
+.grid {
+    display: grid;
+    gap: var(--spacing-md);
+}
+
+
+.grid-12-cols {
+    grid-template-columns: repeat(12, 1fr);
+}
+
+
+.col-1 { grid-column: span 1; }
+.col-2 { grid-column: span 2; }
+.col-3 { grid-column: span 3; }
+.col-4 { grid-column: span 4; }
+.col-5 { grid-column: span 5; }
+.col-6 { grid-column: span 6; }
+.col-7 { grid-column: span 7; }
+.col-8 { grid-column: span 8; }
+.col-9 { grid-column: span 9; }
+.col-10 { grid-column: span 10; }
+.col-11 { grid-column: span 11; }
+.col-12 { grid-column: span 12; }
+
+
+.flex-group {
+    display: flex;
+    gap: var(--spacing-sm);
+    align-items: center; 
+}
+
+.flex-group.justify-center { justify-content: center; }
+.flex-group.justify-between { justify-content: space-between; }
+.flex-group.align-start { align-items: flex-start; }
+.flex-group.align-end { align-items: flex-end; }
+.flex-group.column { flex-direction: column; }
+.flex-group.wrap { flex-wrap: wrap; }
+
+
+
+body {
+    display: grid;
+    grid-template-rows: auto 1fr auto; 
+    min-height: 100vh; 
+}
+
+header, footer {
+    width: 100%;
+}
+
+main {
+    width: 100%;
+    max-width: 1000px; 
+    margin: 0 auto;
+    padding: var(--spacing-lg) var(--spacing-sm);
+}
+
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: var(--spacing-xxl) var(--spacing-md);
+    background: var(--primary-light);
+}
+
+.hero img {
+    width: 280px; 
+    margin-bottom: var(--spacing-md);
+}
+
+.hero h2 {
+    font-size: var(--font-size-xl); 
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-sm);
+}
+
+.hero p {
+    font-size: var(--font-size-md); 
+    max-width: 700px;
+}
+
+
+
+.page-header {
+    background: var(--primary-light);
+    padding: var(--spacing-lg) var(--spacing-md);
+    width: 100%; 
+}
+
+
+.page-header .page-title {
+    font-size: var(--font-size-xl);
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-sm);
+    font-weight: var(--font-weight-semibold);
+    text-align: center;
+}
+
+
+.page-header p {
+    font-size: var(--font-size-md);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    color: var(--neutral-dark);
+    margin-bottom: 0; 
+}
