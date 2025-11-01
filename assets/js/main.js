@@ -1,6 +1,3 @@
-// assets/js/main.js
-
-// --- Módulo de Navegação e Menu Hambúrguer ---
 const Navigation = (function() {
     const hamburger = document.querySelector('.hamburger');
     const nav = document.querySelector('nav');
@@ -47,7 +44,7 @@ const Navigation = (function() {
 })();
 
 
-// --- Módulo de Máscaras de Formulário ---
+
 const FormMasks = (function() {
     function aplicarMascaraCPF(input) {
         input.value = input.value
@@ -78,7 +75,7 @@ const FormMasks = (function() {
 })();
 
 
-// --- Módulo de Validação de Formulário ---
+
 const FormValidation = (function() {
 
     function showError(input, message) {
@@ -104,7 +101,7 @@ const FormValidation = (function() {
     function validateInput(input) {
         if (!input) return true;
         const errorMessageSpan = document.getElementById(input.id + '-error');
-        if (!errorMessageSpan) return true; // No error span, no validation needed via this system
+        if (!errorMessageSpan) return true; 
 
         if (input.validity.valid) {
             hideError(input);
@@ -112,7 +109,7 @@ const FormValidation = (function() {
         } else {
             let message = input.validationMessage;
 
-            // Custom messages for specific input types/conditions
+            
             if (input.id === 'telefone' && input.value.length > 0 && !input.validity.patternMismatch) {
                 if (input.value.replace(/\D/g, "").length < 10) {
                     message = "Telefone incompleto. Ex: (XX) XXXXX-XXXX";
@@ -157,7 +154,7 @@ const FormValidation = (function() {
         const estadoInput = document.getElementById("estado");
         const perfilSelect = document.getElementById("perfil");
 
-        // Apply masks
+        
         if (cpfInput) cpfInput.addEventListener("input", () => FormMasks.aplicarMascaraCPF(cpfInput));
         if (telefoneInput) telefoneInput.addEventListener("input", () => FormMasks.aplicarMascaraTelefone(telefoneInput));
         if (cepInput) cepInput.addEventListener("input", () => FormMasks.aplicarMascaraCEP(cepInput));
@@ -165,12 +162,12 @@ const FormValidation = (function() {
         const inputsToValidate = [
             nomeInput, emailInput, telefoneInput, nascimentoInput, cpfInput,
             cepInput, enderecoInput, cidadeInput, estadoInput, perfilSelect
-        ].filter(Boolean); // Filter out nulls if an element doesn't exist
+        ].filter(Boolean); 
 
         inputsToValidate.forEach(input => {
             input.addEventListener('blur', () => validateInput(input));
             input.addEventListener('input', () => {
-                // Re-validate instantly if already marked as invalid
+               
                 if (input.classList.contains('is-invalid')) {
                     validateInput(input);
                 }
@@ -215,14 +212,14 @@ const FormValidation = (function() {
 })();
 
 
-// --- Módulo SPA (Single Page Application) e Templating ---
+
 const SPA = (function() {
-    const mainContentArea = document.querySelector('main.container'); // Onde o conteúdo das páginas será carregado
+    const mainContentArea = document.querySelector('main.container'); 
     const navLinks = document.querySelectorAll('nav .main-menu a');
     const headerElement = document.querySelector('header');
     const footerElement = document.querySelector('footer');
 
-    // Mapeamento de rotas para URLs de arquivos HTML
+  
     const routes = {
         '/': 'index.html',
         '/index.html': 'index.html',
@@ -230,7 +227,7 @@ const SPA = (function() {
         '/cadastro.html': 'cadastro.html'
     };
 
-    // Função para carregar conteúdo via fetch e simular um template
+ 
     async function loadContent(url) {
         try {
             const response = await fetch(url);
@@ -239,31 +236,29 @@ const SPA = (function() {
             }
             const html = await response.text();
 
-            // Usamos DOMParser para extrair apenas a seção <main> da página carregada
+
             const parser = new DOMParser();
             const doc = parser.parseFromString(html, 'text/html');
             const newMain = doc.querySelector('main.container');
 
             if (newMain) {
-                // Clear existing main content
+                
                 mainContentArea.innerHTML = '';
-                // Append content from the loaded page's main section
-                // We append children directly to preserve any event listeners that might be needed
+                
                 Array.from(newMain.children).forEach(child => {
                     mainContentArea.appendChild(child.cloneNode(true));
                 });
-                // Update the page title
+                
                 document.title = doc.querySelector('title').textContent;
 
-                // Após carregar o conteúdo, é crucial reinicializar qualquer script associado
-                // para garantir que as máscaras e validações funcionem no novo formulário.
+                
                 if (url.includes('cadastro.html')) {
                     FormValidation.setupForm("formCadastro");
                 }
-                // Scroll to top of the page
+              
                 window.scrollTo(0, 0);
 
-                // Re-bind hero button if on index page
+                
                 if (url.includes('index.html')) {
                     const heroButton = mainContentArea.querySelector('.hero .btn-primary');
                     if (heroButton) {
@@ -279,23 +274,23 @@ const SPA = (function() {
         }
     }
 
-    // Manipulador de clique para links de navegação
+    
     function handleNavLinkClick(event) {
-        event.preventDefault(); // Impede o comportamento padrão do link
+        event.preventDefault(); 
 
         const targetUrl = event.target.getAttribute('href');
         const path = new URL(targetUrl, window.location.origin).pathname;
 
-        // Verifica se a URL está nas rotas configuradas
+        
         if (routes[path]) {
-            // Atualiza a URL no navegador sem recarregar a página
+            
             history.pushState({ path: path }, '', targetUrl);
             loadContent(targetUrl);
         } else if (event.target.tagName === 'A' && targetUrl.startsWith('http')) {
-            // Permite links externos
+            
             window.location.href = targetUrl;
         }
-        // Fecha o menu hambúrguer se estiver aberto
+        
         const nav = document.querySelector('nav');
         const hamburger = document.querySelector('.hamburger');
         if (nav.classList.contains('open')) {
@@ -305,38 +300,37 @@ const SPA = (function() {
         }
     }
 
-    // Inicializa o módulo SPA
+
     function init() {
-        // Adiciona event listeners para os links de navegação
+
         navLinks.forEach(link => {
             link.addEventListener('click', handleNavLinkClick);
         });
 
-        // Adiciona listener para o botão "Quero Participar!" na página inicial
+       
         const heroButton = document.querySelector('.hero .btn-primary');
         if (heroButton) {
             heroButton.addEventListener('click', handleNavLinkClick);
         }
 
-        // Carrega o conteúdo da página inicial quando a aplicação é carregada
-        // ou a página é acessada diretamente via URL
+ 
         const initialPath = window.location.pathname;
         if (routes[initialPath]) {
-            // O conteúdo já está no HTML inicial, então apenas reconfigura o form se for cadastro.html
+            
             if (initialPath.includes('cadastro.html')) {
                 FormValidation.setupForm("formCadastro");
             }
         } else {
-            // Fallback para index.html se a rota inicial não for encontrada ou for '/'
+            
             history.replaceState({ path: '/index.html' }, '', 'index.html');
         }
 
-        // Gerencia a navegação do histórico do navegador (botões Voltar/Avançar)
+        
         window.addEventListener('popstate', (event) => {
             if (event.state && event.state.path) {
                 loadContent(routes[event.state.path]);
             } else {
-                // Se não houver estado, provavelmente a página inicial
+               
                 loadContent(routes['/index.html']);
             }
         });
@@ -348,11 +342,9 @@ const SPA = (function() {
 })();
 
 
-// --- Inicialização de todos os módulos quando o DOM estiver pronto ---
 document.addEventListener("DOMContentLoaded", function() {
     Navigation.init();
     SPA.init();
-    // O setup do formulário é chamado dentro do SPA.loadContent quando a página de cadastro é carregada.
-    // Se a página de cadastro for a inicial, ele também será chamado.
-    FormValidation.setupForm("formCadastro"); // Para garantir que funcione se cadastro.html for aberto diretamente
+  
+    FormValidation.setupForm("formCadastro"); 
 });
