@@ -11,29 +11,30 @@
 <body>
     <header>
         <div class="header-content container">
-            <a href="index.html" class="logo-group">
+            <a href="index.html" class="logo-group" aria-label="Ir para a página inicial da ONG Esperança Viva">
                 <img src="assets/images/logo.png" alt="Logo da ONG Esperança Viva" />
                 <h1>ONG Esperança Viva</h1>
             </a>
+            <button class="hamburger" aria-label="Abrir menu de navegação" aria-expanded="false">
+                <span class="hamburger-icon"></span>
+            </button>
         </div>
-        <button class="hamburger" aria-label="Abrir menu de navegação" aria-expanded="false">
-            <span class="hamburger-icon"></span>
-        </button>
     </header>
-    <nav role="navigation">
+    <nav role="navigation" aria-label="Menu Principal">
         <ul class="main-menu">
             <li><a href="index.html">Início</a></li>
             <li><a href="projetos.html">Projetos</a></li>
-            <li><a href="cadastro.html">Cadastro</a></li>
+            <li><a href="cadastro.html" aria-current="page">Cadastro</a></li>
         </ul>
     </nav>
     <main class="container">
-       
         <h2 class="section-title mb-md">Página de Cadastro</h2>
         <p class="mb-lg">Preencha seus dados para participar como voluntário ou apoiador. Seus dados são confidenciais.</p>
+        
         <form id="formCadastro" action="#" method="POST" novalidate>
             <fieldset class="mb-lg">
                 <legend>Informações Pessoais</legend>
+                
                 <label for="nome">Nome Completo</label>
                 <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" required minlength="3" aria-describedby="nome-error"/>
                 <span id="nome-error" class="error-message">Por favor, insira seu nome completo (mínimo de 3 caracteres).</span>
@@ -57,6 +58,7 @@
 
             <fieldset class="mb-lg">
                 <legend>Endereço</legend>
+                
                 <label for="cep">CEP</label>
                 <input type="text" id="cep" name="cep" placeholder="00000-000" pattern="^\d{5}-\d{3}$" required aria-describedby="cep-error"/>
                 <span id="cep-error" class="error-message">Por favor, insira um CEP válido no formato XXXXX-XXX.</span>
@@ -79,17 +81,23 @@
                 </div>
             </fieldset>
 
-            <label for="perfil">Qual seu interesse?</label>
-            <select id="perfil" name="perfil" class="mb-md">
-                <option value="">Selecione uma opção</option>
-                <option value="voluntario">Quero ser voluntário</option>
-                <option value="apoiador">Quero ser um apoiador financeiro</option>
-                <option value="ambos">Ambos</option>
-            </select>
+            <fieldset class="mb-lg">
+                <legend>Interesse</legend>
+                <label for="perfil">Qual seu interesse principal?</label>
+                <select id="perfil" name="perfil" required aria-describedby="perfil-error">
+                    <option value="">-- Selecione uma opção --</option>
+                    <option value="voluntario">Quero ser Voluntário</option>
+                    <option value="apoiador">Quero ser Apoiador (Doação)</option>
+                    <option value="ambos">Ambos (Voluntário e Apoiador)</option>
+                </select>
+                <span id="perfil-error" class="error-message">Por favor, selecione seu interesse.</span>
+            </fieldset>
 
-            <button type="submit">Enviar Cadastro</button>
+            <button type="submit" class="btn btn-primary">Enviar</button>
+            
         </form>
     </main>
+    
     <footer>
         <p>&copy; 2025 ONG Esperança Viva - Todos os direitos reservados.</p>
     </footer>

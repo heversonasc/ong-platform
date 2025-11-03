@@ -1,30 +1,56 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-
-
-@import '_variables.css';
-@import '_base.css';
-@import '_layout.css';
-@import '_navigation.css';
-@import '_components.css';
-@import '_responsive.css'; 
-
+@import "_variables.css";
+@import "_base.css";
+@import "_layout.css";
+@import "_navigation.css";
+@import "_components.css";
+@import "_responsive.css";
 
 .section-title {
-    font-size: var(--font-size-xl);
-    color: var(--primary-color);
-    margin-bottom: var(--spacing-md);
-    border-left: 5px solid var(--primary-color);
-    padding-left: var(--spacing-sm);
-    font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-xl);
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-md);
+  border-left: 5px solid var(--primary-color);
+  padding-left: var(--spacing-sm);
+  font-weight: var(--font-weight-semibold);
+  transition: color var(--transition-speed-normal) var(--transition-ease),
+    border-color var(--transition-speed-normal) var(--transition-ease);
+}
+
+
+body.theme-high-contrast .section-title {
+  color: var(--hc-text);
+  border-color: var(--hc-link);
+}
+
+
+body.theme-dark .section-title {
+  color: var(--primary-color);
+  border-color: var(--primary-color);
 }
 
 footer {
-    background-color: var(--primary-dark);
-    color: var(--white);
-    text-align: center;
-    padding: var(--spacing-sm);
-    margin-top: var(--spacing-xl);
-    font-size: var(--font-size-sm);
+  background-color: var(--primary-dark);
+  color: var(--white);
+  text-align: center;
+  padding: var(--spacing-sm);
+  margin-top: var(--spacing-xl);
+  font-size: var(--font-size-sm);
+  transition: background-color var(--transition-speed-normal) var(--transition-ease),
+    color var(--transition-speed-normal) var(--transition-ease); 
+}
+
+
+body.theme-high-contrast footer {
+  background-color: var(--hc-background);
+  border-top: 2px solid var(--hc-border);
+  color: var(--hc-text);
+}
+
+
+body.theme-dark footer {
+  background-color: var(--dark-background);
+  color: var(--dark-text);
+  border-top: 1px solid var(--dark-border);
 }
