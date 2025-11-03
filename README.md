@@ -1,7 +1,7 @@
 # 🌳 Projeto ONG Esperança Viva
 Um site institucional estático e responsivo para uma ONG fictícia, focado na apresentação de projetos e na captação de novos voluntários através de um formulário com validação.
 
-<img width="1000" height="935" alt="Image" src="https://github.com/user-attachments/assets/4aa05fac-d3ca-4a99-a4ec-09125df4538d" />
+<img width="1000" height="935" alt="Image" src="https://github.com/user-attachments/assets/67d3d648-b7f4-4fa7-9207-c1e5f79bd058" />
 
 
 # 💡 Sobre o Projeto
@@ -44,4 +44,5 @@ O design foi pensado para transmitir confiança, serenidade e esperança. A pale
 - Cor de Destaque (Hover): #ffd700
 
 Feito com ❤️ para praticar e demonstrar habilidades front-end.
+
 
