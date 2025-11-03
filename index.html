@@ -11,26 +11,24 @@
 <body>
     <header>
         <div class="header-content container">
-            <a href="index.html" class="logo-group">
+            <a href="index.html" class="logo-group" aria-label="Ir para a página inicial da ONG Esperança Viva">
                 <img src="assets/images/logo.png" alt="Logo da ONG Esperança Viva" />
                 <h1>ONG Esperança Viva</h1>
             </a>
+            
+            <button class="hamburger" aria-label="Abrir menu de navegação" aria-expanded="false">
+                <span class="hamburger-icon"></span>
+            </button>
         </div>
-        <button class="hamburger" aria-label="Abrir menu de navegação" aria-expanded="false">
-            <span class="hamburger-icon"></span>
-        </button>
     </header>
-    <nav role="navigation">
+    <nav role="navigation" aria-label="Menu Principal">
         <ul class="main-menu">
-            <li><a href="index.html">Início</a></li>
+            <li><a href="index.html" aria-current="page">Início</a></li>
             <li><a href="projetos.html">Projetos</a></li>
             <li><a href="cadastro.html">Cadastro</a></li>
         </ul>
     </nav>
-
-    
     <main class="container">
-        
         <section class="hero">
             <div class="container flex-group wrap flex-column-mobile align-center justify-center">
                 <img src="assets/images/hero.svg" alt="Ilustração de pessoas se ajudando e doando" class="hero-image" />

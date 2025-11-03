@@ -1,10 +1,8 @@
-
 @media (min-width: 576px) {
-    h1 { font-size: var(--font-size-xxl); } 
+    h1 { font-size: var(--font-size-xxl); }
     h2 { font-size: var(--font-size-xl); }
-    .hero h2 { font-size: var(--font-size-xxl); } 
+    .hero h2 { font-size: var(--font-size-xxl); }
 
-  
     .col-sm-1 { grid-column: span 1; }
     .col-sm-2 { grid-column: span 2; }
     .col-sm-3 { grid-column: span 3; }
@@ -19,14 +17,12 @@
     .col-sm-12 { grid-column: span 12; }
 }
 
-
 @media (min-width: 768px) {
-    
     .hamburger { display: none; }
     nav .main-menu {
-        display: flex; 
-        flex-direction: row; 
-        position: static; 
+        display: flex;
+        flex-direction: row;
+        position: static;
         width: auto;
         box-shadow: none;
         border-top: none;
@@ -35,16 +31,16 @@
         padding: var(--spacing-sm) 0;
     }
     header h1 {
-        font-size: var(--font-size-xxl); 
+        font-size: var(--font-size-xxl);
     }
     .hero {
         padding: var(--spacing-xxl) var(--spacing-lg);
-        flex-direction: row; 
+        flex-direction: row;
         text-align: left;
         gap: var(--spacing-xl);
     }
     .hero img {
-        width: 350px; 
+        width: 350px;
         margin-bottom: 0;
     }
     .hero h2 {
@@ -54,7 +50,6 @@
         font-size: var(--font-size-lg);
     }
 
-    
     .col-md-1 { grid-column: span 1; }
     .col-md-2 { grid-column: span 2; }
     .col-md-3 { grid-column: span 3; }
@@ -69,10 +64,9 @@
     .col-md-12 { grid-column: span 12; }
 }
 
-
 @media (min-width: 992px) {
     .container {
-        padding: 0 var(--spacing-md); 
+        padding: 0 var(--spacing-md);
     }
     header img {
         height: 50px;
@@ -81,10 +75,9 @@
         font-size: var(--font-size-xxl);
     }
     .project-card h3 {
-        font-size: var(--font-size-lg); 
+        font-size: var(--font-size-lg);
     }
 
-    
     .col-lg-1 { grid-column: span 1; }
     .col-lg-2 { grid-column: span 2; }
     .col-lg-3 { grid-column: span 3; }
@@ -99,19 +92,17 @@
     .col-lg-12 { grid-column: span 12; }
 }
 
-
 @media (min-width: 1200px) {
     .hero {
         padding: var(--spacing-xxl) var(--spacing-xl);
     }
     .hero img {
-        width: 400px; 
+        width: 400px;
     }
     .hero h2 {
-        font-size: calc(var(--font-size-xxl) + 0.5rem); 
+        font-size: calc(var(--font-size-xxl) + 0.5rem);
     }
 
-    
     .col-xl-1 { grid-column: span 1; }
     .col-xl-2 { grid-column: span 2; }
     .col-xl-3 { grid-column: span 3; }
